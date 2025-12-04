@@ -16,6 +16,6 @@ ABCD
 ## Our Python Notebooks
 The following notebooks contain our code, results and insights:  
   - [Downsampling process](https://github.com/hicksjr2/ISA444-Final-Project/blob/main/ISA444_downsample_preprocess.ipynb)
-  - [TimeCopilot Colab](https://drive.google.com/file/d/1VxCQ1UMSyaKdJ48e8yJ2O1BFTTCi1wCR/view?usp=sharing) *Use Google Colab to view code*
+  - [TimeCopilot Colab](https://colab.research.google.com/drive/1VxCQ1UMSyaKdJ48e8yJ2O1BFTTCi1wCR#scrollTo=lm0qjca4qiNh) *Use Google Colab to view code*
   - 
 
