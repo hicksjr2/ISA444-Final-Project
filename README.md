@@ -5,7 +5,7 @@ Given that the dataset contained XYZ different time-series, we focused on ABC ti
 
 ## Forecasting Procedure
 Our approach consisted of the following steps:  
-  1. Loaded, cleaned and downsampled the Walmart dataset and condensed to a CSV file. We re-shaped the data to match Nixtla's three-column format. 
+  1. Loaded, cleaned & downsampled the Walmart dataset to 40 time-series & condensed to a CSV file. We re-shaped the data to match Nixtla's three-column format. 
   2. 
   3. a
 
