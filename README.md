@@ -5,8 +5,8 @@ Given that the dataset contained XYZ different time-series, we focused on ABC ti
 
 ## Forecasting Procedure
 Our approach consisted of the following steps:  
-  1. ABC
-  2. EFG
+  1. Downsampling our Walmart dataset to download as a csv file
+  2. 
   3. a
 
 ## Results and Observations
