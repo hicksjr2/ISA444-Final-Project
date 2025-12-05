@@ -1,4 +1,5 @@
 # Business Forecasting Using Statistical, ML, Deep Learning and Transformer Models
+## By John Hicks, Caleb Vowell, & Mia Weber
 
 ## Dataset
 In this class project, we utilize the [Walmart Sales Forecasting dataset from Kaggle](https://www.kaggle.com/datasets/aslanahmedov/walmart-sales-forecast) to compare a wide range of time-series forecasting models. 
@@ -20,17 +21,30 @@ Our approach consisted of the following steps:
 12. Synthesized results across statistical, ML, deep learning, and foundation models to understand forecasting behavior and benchmark model performance.
 
 ## Results and Observations
-Our evaluation compared multiple forecasting approached across the top 40 Store-Dept time series. We will reports 1) ME, MAE, RMSE, and MAPE for all methods and 2) Model-winner counts. Below is a concise summmary of findings. *ADD MORE TO THIS*
+Our evaluation compared multiple forecasting approached across the top 40 Store-Dept time series. We will reports 1) ME, MAE, RMSE, and MAPE for all methods and 2) Model-winner counts. Below is a concise summmary of findings.
 
 1. Baseline Model Performance (Naive vs. Seasonal Naive)
-  
-2. Classical Statistical Models (StatsForecast)
- 
-3. Machine Learning (LightGBM)
+- Seasonal Naive wins majority of series for ME, MAE, RMSE, and MAPE
+  * ME: 31 wins vs. 9 wins
+  * MAE: 28 wins vs. 12 wins
+  * RMSE: 31 wins vs. 9 wins
+  * MAPE: 30 wins vs. 10 wins
+- This confirms that weekly Walmart sales are highly seasonal. Incorporating last-year seasonality provides a strong baseline for our forecasting exploration.
+- These metrics and winner counts are visible the following CSV files:
+  * [per_series_model_metrics.csv](https://github.com/hicksjr2/ISA444-Final-Project/blob/main/per_series_model_metrics.csv)
+  * [winner_counts_ME.csv](https://github.com/hicksjr2/ISA444-Final-Project/blob/main/winner_counts_ME.csv), [winner_counts_MAE.csv](https://github.com/hicksjr2/ISA444-Final-Project/blob/main/winner_counts_MAE.csv), [winner_counts_RMSE.csv](https://github.com/hicksjr2/ISA444-Final-Project/blob/main/winner_counts_RMSE.csv), [winner_counts_MAPE.csv](https://github.com/hicksjr2/ISA444-Final-Project/blob/main/winner_counts_MAPE.csv)
 
-4. Deep Learning (AutoNBEATS & AutoNHITS)
-  
-5. Foundation Models (TimeCoPilot)
+2. Classical Statistical Models (StatsForecast)
+- 
+
+2. Machine Learning (LightGBM)
+- 
+
+3. Deep Learning (AutoNBEATS & AutoNHITS)
+- 
+
+4. Foundation Models (TimeCoPilot)
+- 
 
 ### Summary of Findings:
 - Seasonal Naive is the strongest simple baseline, winning most series for ME, MAE, RMSE, and MAPE.
