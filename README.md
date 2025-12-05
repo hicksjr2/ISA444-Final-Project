@@ -20,12 +20,16 @@ Our approach consisted of the following steps:
 12. Synthesized results across statistical, ML, deep learning, and foundation models to understand forecasting behavior and benchmark model performance.
 
 ## Results and Observations
-Our evaluation compared multiple forecasting approached across the top 40 Store-Dept time series. We will reports 1) ME, MAE, RMSE, and MAPE for all methods and 2) Model-winner counts. Below is a concise summmary of findings.
+Our evaluation compared multiple forecasting approached across the top 40 Store-Dept time series. We will reports 1) ME, MAE, RMSE, and MAPE for all methods and 2) Model-winner counts. Below is a concise summmary of findings. *ADD MORE TO THIS*
 
 1. Baseline Model Performance (Naive vs. Seasonal Naive)
+  
 2. Classical Statistical Models (StatsForecast)
+ 
 3. Machine Learning (LightGBM)
+
 4. Deep Learning (AutoNBEATS & AutoNHITS)
+  
 5. Foundation Models (TimeCoPilot)
 
 ### Summary of Findings:
