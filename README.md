@@ -20,8 +20,20 @@ Our approach consisted of the following steps:
 12. Synthesized results across statistical, ML, deep learning, and foundation models to understand forecasting behavior and benchmark model performance.
 
 ## Results and Observations
-ABCD
+Our evaluation compared multiple forecasting approached across the top 40 Store-Dept time series. We will reports 1) ME, MAE, RMSE, and MAPE for all methods and 2) Model-winner counts. Below is a concise summmary of findings.
 
+1. Baseline Model Performance (Naive vs. Seasonal Naive)
+2. Classical Statistical Models (StatsForecast)
+3. Machine Learning (LightGBM)
+4. Deep Learning (AutoNBEATS & AutoNHITS)
+5. Foundation Models (TimeCoPilot)
+
+### Summary of Findings:
+- Seasonal Naive is the strongest simple baseline, winning most series for ME, MAE, RMSE, and MAPE.
+- AutoETS and AutoARIMA improve accuracy over naive models, especially on stable weekly series.
+- LightGBM performs well on autoregressive patterns but is sensitive to volatility.
+- Deep learning models (especially NHITS) provide large improvements for complex seasonal structure.
+- Foundation models (TimesFM-2.5 & TimesFM-2.0) are the top performers overall, achieving the lowest MASE across all models.
 
 ## Our Python Notebooks
 The following notebooks contain our code, results and insights:  
