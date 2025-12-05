@@ -21,7 +21,7 @@ Our approach consisted of the following steps:
 12. Synthesized results across statistical, ML, deep learning, and foundation models to understand forecasting behavior and benchmark model performance.
 
 ## Results and Observations
-Our evaluation compared multiple forecasting approached across the top 40 Store-Dept time series. We will reports 1) ME, MAE, RMSE, and MAPE for all methods and 2) Model-winner counts. Below is a concise summmary of findings.
+Our evaluation compared multiple forecasting approached across the top 40 Store-Dept time series. We will report 1) ME, MAE, RMSE, and MAPE for all methods and 2) Model-winner counts. Below is a concise summmary of findings.
 
 1. Baseline Model Performance (Naive vs. Seasonal Naive)
 - Seasonal Naive wins majority of series for ME, MAE, RMSE, and MAPE
@@ -35,16 +35,30 @@ Our evaluation compared multiple forecasting approached across the top 40 Store-
   * [winner_counts_ME.csv](https://github.com/hicksjr2/ISA444-Final-Project/blob/main/winner_counts_ME.csv), [winner_counts_MAE.csv](https://github.com/hicksjr2/ISA444-Final-Project/blob/main/winner_counts_MAE.csv), [winner_counts_RMSE.csv](https://github.com/hicksjr2/ISA444-Final-Project/blob/main/winner_counts_RMSE.csv), [winner_counts_MAPE.csv](https://github.com/hicksjr2/ISA444-Final-Project/blob/main/winner_counts_MAPE.csv)
 
 2. Classical Statistical Models (StatsForecast)
-- 
+- AutoETS demonstrated meaningful accuracy over Naive and often AutoARIMA, especially on smoother series with stable exponential-trend structures. However, it struggled on high-variance departments (e.g., 10_72).
+- AutoARIMA had competitive accuracy, frequently outperforming Naive but slightly less consistent than Seasonal Naive and AutoETS. ARIMA performed best on linar, short-term dependencies. 
 
-2. Machine Learning (LightGBM)
-- 
+3. Machine Learning (LightGBM)
+- A gradient-boosted tree model (LightGBM) was evaluated using autoregressive lags and exogenous features such as temperature, fuel price, CPI, store type, and store size.
+- LightGBM delivered strong accuracy on smoother, feature-driven departments, with several series (e.g., 10_10, 10_11, 10_12) achieving RMSE values under 5,000 and occasionally below 1,000. However, it struggled on highly volatile departments, producing RMSE values above 15,000 for series with strong seasonal spikes or irregular demand patterns.
+- This reflects typical ML behavior in retail forecasting: tree-based models perform well when patterns are stable and feature-explainable, but underperform when faced with high-variance holiday peaks, promotional effects, or complex non-linear seasonality, making them less robust than deep learning and foundation models for this particular dataset.
 
-3. Deep Learning (AutoNBEATS & AutoNHITS)
-- 
+4. Deep Learning (AutoNBEATS & AutoNHITS)
+- AutoNHITS often achieved lower error on series with sharper, more complex seasonal patterns (e.g., 10_2, 10_40, 10_27). 
+- AutoNBEATS sometimes outperformed NHITS on smoother or more trend-driven series (e.g., 13_90, 13_92).
+- The deep learning models indicated that flexible neural architectures can capture the structure that classical models might miss, especially when demand patterns are nonlinear or multi-scale.
 
-4. Foundation Models (TimeCoPilot)
-- 
+5. Foundation Models (TimeCoPilot)
+- TimesFM-2.5 acheived the lowest overall MASE across all models tested.
+- TimeFM-2.0 was second, also outperforming classical and ML approaches.
+- MASE ranking (best to worst):
+  * TimesFM-2.5: 0.563
+  * TimesFM-2.0: 0.570
+  * Chronos: 0.654
+  * AutoARIMA: 0.847
+  * Moirai: 0.908
+  * SeasonalNaive: 0.984
+ - Results indicate that foundation models can better capture Walmart's seasonal and promotional structure with minimal tuning.
 
 ### Summary of Findings:
 - Seasonal Naive is the strongest simple baseline, winning most series for ME, MAE, RMSE, and MAPE.
