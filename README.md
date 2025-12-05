@@ -6,15 +6,18 @@ Given that the full Walmart dataset contains hundreds of Store-Department series
 
 ## Forecasting Procedure
 Our approach consisted of the following steps:  
-  1. Loaded, cleaned & downsampled the Walmart dataset by selected the top 40 Store-Dept series ranked by total sales volume.
-  2. Re-shaped the resulting dataset to match Nixtla's three-column panel format (unique_id, ds, y).
-  3. Saved the cleaned dataset as [downsampled_df.csv], creating a consistent input for all forecasting models.
-  4. We created forecasting models and focused on the naive and seasonal naive methods. These gave a realistic baseline for forecasting and allowed us to test the significance of seasonal patterns.
-  5. We then used backtesting folds: each fold simulates a real forecasting scenario with training, predicting future weeks and comparing against actuals. For each fold, both models generated predictions for the 40 series.
-  6. We then computed error metrics for every model, series and fold. We calculated the mean error, mean absolute error, root mean square error, and mean absolute percentage error. The results were combined to determine which model performed best for each store-dept pair.
-  7. We identified model winners for each of the 40 series. We compared the naive and seasonal naive for every metric and found that the seasonal naive was the most accurate across ~ 80% of all the series depending on the metric.
-  8. We then inspected the forecasts between actual and predicted weekly sales. We discovered that the seasonal naive method captures repetitive annual patterns and peaks during holidays while the naive missed these turning points.
-  9. Finally, we combined our findings of the statistical performance measures, visuals, and model winner counts to solidify our insights about the behavior of retail demand and seasonal baselines. 
+1. Loaded, cleaned, and downsampled the Walmart dataset by selecting the top 40 Store–Dept series ranked by total sales volume.
+2. Reformatted the resulting dataset into Nixtla’s three-column panel structure (unique_id, ds, y).
+3. Saved the processed dataset as downsampled_df.csv, creating a consistent input across all forecasting models.
+4. Applied 5-fold backtesting, where each fold trains on historical data and predicts the next 13 weeks for all 40 series.
+5. Computed ME, MAE, RMSE, and MAPE for every model, fold, and series to quantify forecasting accuracy.
+6. Identified per-series model winners and found that Seasonal Naive outperformed Naive on ~80% of series across multiple metrics.
+7. Examined forecast plots to assess how Seasonal Naive captured recurring seasonal effects and holiday peaks more effectively than Naive.
+8. Trained classical statistical models (AutoARIMA, AutoETS, Naive, Seasonal Naive) using StatsForecast and compared their multi-fold CV performance.
+9. Implemented a LightGBM machine learning model via MLForecast using lag and calendar features and evaluated performance against statistical baselines.
+10. Trained deep learning models (AutoNBEATS and AutoNHITS) and evaluated them using cross-validation with tuned hyperparameters.
+11. Applied transformer-based foundation models (Chronos, Moirai, TimesFM-2.0, TimesFM-2.5, and TimeCopilot statistical models) and evaluated performance using MASE.
+12. Synthesized results across statistical, ML, deep learning, and foundation models to understand forecasting behavior and benchmark model performance.
 
 ## Results and Observations
 ABCD
@@ -23,6 +26,7 @@ ABCD
 ## Our Python Notebooks
 The following notebooks contain our code, results and insights:  
   - [Downsampling Process](https://github.com/hicksjr2/ISA444-Final-Project/blob/main/ISA444_downsample_preprocess.ipynb)
+Contains data cleaning, selection of the top 40 Store-Dept series, and creation of the Nixtla-formatted panel dataset ('downsampled_df.csv').
   - [Forecasting Models Colab](https://colab.research.google.com/drive/14YOiFIOjZzcY80prRuOus06nuGeIG7AE?usp=sharing) *Use Google Colab to view code*
-  - 
+Includes all forecasting models (baseline, statistical, ML, deep learning, and foundation models), cross-validation, metrics, and evaluation.
 
