@@ -26,7 +26,9 @@ ABCD
 ## Our Python Notebooks
 The following notebooks contain our code, results and insights:  
   - [Downsampling Process](https://github.com/hicksjr2/ISA444-Final-Project/blob/main/ISA444_downsample_preprocess.ipynb)
+
 Contains data cleaning, selection of the top 40 Store-Dept series, and creation of the Nixtla-formatted panel dataset ('downsampled_df.csv').
   - [Forecasting Models Colab](https://colab.research.google.com/drive/14YOiFIOjZzcY80prRuOus06nuGeIG7AE?usp=sharing) *Use Google Colab to view code*
+
 Includes all forecasting models (baseline, statistical, ML, deep learning, and foundation models), cross-validation, metrics, and evaluation.
 
